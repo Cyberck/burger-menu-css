@@ -269,6 +269,7 @@ body {
     .header__content {
         padding: 0 15px;
     }
+
     .header__content-title {
         z-index: 777;
     }
@@ -285,11 +286,11 @@ body {
     .nav {
         display: flex;
         padding: 10px 15px;
-        z-index: 998; 
+        z-index: 998;
     }
 
     .nav__menu {
-        display: none;      
+        display: none;
     }
 
     #label {
@@ -300,13 +301,37 @@ body {
         z-index: 999;
     }
 
-    #burger:checked + label + .nav__menu{
+    #burger:checked+label+.nav__menu {
         display: inline-block;
         z-index: 778;
         width: 180px;
         height: 100%;
-        margin-top: 50px;
+        margin-top: 50px; 
+        animation: show 800ms;  
     }
+
+    #label::before {
+        content: '⌆';
+    }
+
+    #burger:checked+#label::before {
+        content: "╳";
+        font-size: 25px;
+        position: fixed;
+        top: 11px;
+        right: 20px;
+    }
+
+    @keyframes show {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+
 }
 
 #burger {
@@ -320,4 +345,3 @@ body {
     font-size: 45px;
     color: #2A86B1;
 }
-
